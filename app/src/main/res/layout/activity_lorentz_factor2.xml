@@ -2,6 +2,7 @@
 <androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
+    android:id="@+id/lt_bg"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
     android:background="#FCBB6D"
@@ -9,10 +10,12 @@
 
     <TextView
         android:id="@+id/textView3"
-        android:layout_width="107dp"
-        android:layout_height="49dp"
+        android:layout_width="198dp"
+        android:layout_height="50dp"
         android:gravity="center"
         android:text="Check Lorentz Facotor "
+        android:textColor="#475C7A"
+        android:textSize="20sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_inputLF"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -31,7 +34,7 @@
         app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.17" />
+        app:layout_constraintVertical_bias="0.25" />
 
     <EditText
         android:id="@+id/tv_inputLF"
@@ -39,45 +42,48 @@
         android:layout_height="50dp"
         android:ems="10"
         android:gravity="center"
-        android:hint="Lorentz Factor (5 significant figures)"
-        android:inputType="number"
-        app:layout_constraintBottom_toBottomOf="parent"
+        android:hint="Lorentz Factor (8 significant figures)"
+        android:inputType="number|numberDecimal"
+        app:layout_constraintBottom_toTopOf="@+id/tv_LF"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.36" />
+        app:layout_constraintTop_toBottomOf="@+id/tv_inputV"
+        app:layout_constraintVertical_bias="0.781" />
 
     <Button
         android:id="@+id/bt_calcLF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Calculate"
+        app:backgroundTint="#D8737F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.277"
+        app:layout_constraintHorizontal_bias="0.219"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_LF"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.429" />
 
     <Button
         android:id="@+id/bt_checkLF"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="Check"
+        app:backgroundTint="#D8737F"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.817"
+        app:layout_constraintHorizontal_bias="0.845"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/tv_LF"
-        app:layout_constraintVertical_bias="0.165" />
+        app:layout_constraintVertical_bias="0.429" />
 
     <TextView
         android:id="@+id/textView"
-        android:layout_width="107dp"
-        android:layout_height="49dp"
+        android:layout_width="152dp"
+        android:layout_height="72dp"
         android:gravity="center"
         android:text="Enter Speed"
+        android:textColor="#475C7A"
+        android:textSize="24sp"
         app:layout_constraintBottom_toTopOf="@+id/tv_inputV"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -85,13 +91,15 @@
 
     <TextView
         android:id="@+id/tv_LF"
-        android:layout_width="121dp"
-        android:layout_height="62dp"
+        android:layout_width="210dp"
+        android:layout_height="57dp"
         android:gravity="center"
-        android:text="TextView"
+        android:textColor="#475C7A"
+        android:textSize="34sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.497"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.466" />
+        app:layout_constraintVertical_bias="0.635" />
 </androidx.constraintlayout.widget.ConstraintLayout>
