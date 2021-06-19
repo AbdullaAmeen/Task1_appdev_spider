@@ -37,12 +37,13 @@ public class LorentzFactor extends AppCompatActivity {
         bt_checkLF = findViewById(R.id.bt_checkLF);
         lt_bg = findViewById(R.id.lt_bg);
 
-        tv_LF = findViewById(R.id.tv_LF);
+        tv_LF = findViewById(R.id.tv_SF);
 
         bt_checkLF.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                if(!TextUtils.isEmpty(tv_inputV.getText().toString())) {
+                tv_LF.setText("");
+                if(!TextUtils.isEmpty(tv_inputV.getText().toString()) && !TextUtils.isEmpty(tv_inputLF.getText().toString())) {
                     vel = Double.parseDouble("0"+tv_inputV.getText().toString());
                     if (CheckV()) {
                         CheckAnswer();
@@ -60,11 +61,11 @@ public class LorentzFactor extends AppCompatActivity {
                 if(!TextUtils.isEmpty(tv_inputV.getText().toString())) {
                     vel = Double.parseDouble(tv_inputV.getText().toString());
                     if (CheckV()) {
-                        Answer();
+                        Answer(8);
                     }
                 }
                 else{
-                    Toast.makeText(LorentzFactor.this, "Please Enter V", Toast.LENGTH_SHORT).show();
+                    Toast.makeText(LorentzFactor.this, "Please Enter the values", Toast.LENGTH_SHORT).show();
                 }
 
             }
@@ -86,10 +87,11 @@ public class LorentzFactor extends AppCompatActivity {
         return true;
     }
     void CheckAnswer(){
-        String answer;
+        Double answer;
 
-        answer = tv_inputLF.getText().toString();
-        if(answer.equals(getAnswer(vel))){
+        answer= Double.parseDouble(tv_inputLF.getText().toString());
+        int len =tv_inputLF.getText().length()-2;
+        if(String.format("%."+len+"f",answer).equals(getAnswer(vel,len))){
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
         }
         else{
@@ -103,15 +105,15 @@ public class LorentzFactor extends AppCompatActivity {
                     lt_bg.setBackgroundColor(Color.parseColor("#FCBB6D"));
                 }
             }, 500);
-            tv_LF.setText(getAnswer(vel));
+            Answer(len);
         }
     }
-    void Answer(){
-            tv_LF.setText(getAnswer(vel));
+    void Answer(int precision){
+            tv_LF.setText(getAnswer(vel,precision));
     }
 
-    String getAnswer(double v){
-        return  String.format("%.8f",(1 / (Math.sqrt((1 - (v * v / (c * c)))))));
+    String getAnswer(double v, int precision){
+        return  String.format("%."+precision+"f",(1 / (Math.sqrt((1 - (v * v / (c * c)))))));
     }
 
 }
