@@ -91,6 +91,7 @@ public class LorentzFactor extends AppCompatActivity {
 
         answer= Double.parseDouble(tv_inputLF.getText().toString());
         int len =tv_inputLF.getText().length()-2;
+        len=len<0?0:len;
         if(String.format("%."+len+"f",answer).equals(getAnswer(vel,len))){
             Toast.makeText(this, "Correct", Toast.LENGTH_SHORT).show();
         }
